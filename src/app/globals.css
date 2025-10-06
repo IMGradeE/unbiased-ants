@@ -1,9 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #e0e0e0;
+--background-secondary: #f0f0f0;
   --foreground: #171717;
 }
+
+select,
+::picker(select) {
+    appearance: base-select;
+}
+select::picker-icon {
+    color: #999999;
+    transition: 0.4s rotate;
+}
+select:open::picker-icon {
+    rotate: 180deg;
+}
+
+::picker(select) {
+    border: none;
+    border-radius: 8px;
+    background: var(--background-secondary);
+    color: var(--foreground);
+    font-size: 16px;
+}
+
+option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    border: 2px solid #dddddd;
+    background: var(--background-secondary);
+    padding: 4px;
+    transition: 0.4s;
+}
+option:first-of-type {
+    border-radius: 8px 8px 0 0;
+}
+
+option:last-of-type {
+    border-radius: 0 0 8px 8px;
+}
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}
+
+option:checked {
+    font-weight: bold;
+}
+option::checkmark {
+    order: 1;
+    margin-left: auto;
+    padding-right: 2px;
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +65,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
