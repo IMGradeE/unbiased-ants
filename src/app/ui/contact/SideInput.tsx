@@ -1,4 +1,4 @@
-import {SideInputType} from "@/app/ui/contact/messageForm";
+import {SideInputType} from "@/app/contact/page";
 
 export const SideInput = ({attrs, className, labelClassName}: {attrs: SideInputType, className: undefined|string, labelClassName: undefined|string}) => {
     let k = 0;
