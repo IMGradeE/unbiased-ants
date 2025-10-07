@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.className} max-w-screen max-h-screen`}
+        className={`${geistSans.className}`}
       >
       <HeaderNav/>
         {children}

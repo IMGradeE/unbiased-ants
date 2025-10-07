@@ -15,7 +15,7 @@ export type messageFormState = {
 }
 
 // todo either email or phone is required
-// todo validation rules
+// todo validation rules MAXLENGTH
 const messageFormSchema = z.object({
     subject: z.string().min(1, { message: 'Subject is required' }),
     inquiryType: z.coerce.number(),
@@ -27,13 +27,13 @@ const messageFormSchema = z.object({
 });
 
 // This is actually really cool, no need to define an API.
-export async function CreateMessage (initialState: any, formData: FormData) {
+export async function CreateMessage (initialState: messageFormState, formData: FormData) {
     const validatedData = messageFormSchema.safeParse(Object.fromEntries(formData));
 
     if (!validatedData.success) {
         return {
             errors: z.treeifyError(validatedData.error).errors,
-            message: 'Missing Fields. Failed to send message.',
+            message: 'Missing Fields. Failed to send message.'
         };
     }
 
@@ -52,12 +52,15 @@ export async function CreateMessage (initialState: any, formData: FormData) {
         }else{
             const result = await sql `INSERT INTO Messages (subject, message,email,name,type,urgent, company) VALUES (${subject}, ${message}, ${email}, ${name}, ${inquiryType}, ${urgent}, ${company})`;
         }
-        // todo add success message
+        return {
+            message: 'Message sent successfully!',
+            errors: undefined,
+        };
     } catch (error) {
         console.error('Error creating message:', error);
-        throw new Error('Failed to create message');
+        return {
+            errors: {error},
+            message: 'Failed to send message.'
+        };
     }
-    return {
-        message: 'Message sent successfully!',
-    };
 }

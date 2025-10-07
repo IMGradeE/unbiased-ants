@@ -11,6 +11,9 @@ select,
     appearance: base-select;
 }
 select::picker-icon {
+    order: 1;
+    margin-left: 0;
+    padding-right: 2px;
     color: #999999;
     transition: 0.4s rotate;
 }
