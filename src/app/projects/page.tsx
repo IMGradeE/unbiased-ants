@@ -10,7 +10,7 @@ export default function Projects() {
         <>
             {projects.map((project) => {
                 return(
-                    <div className={"flex flex-row gap-4 w-2/3 mx-auto py-4"}>
+                    <div className={"flex flex-row gap-4 md:w-2/3 w-full md:mx-auto py-4"}>
                         <CVElement key={project.title} item={project} />
                     </div>
 

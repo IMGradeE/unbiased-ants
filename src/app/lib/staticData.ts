@@ -2,7 +2,7 @@ import {cvElement} from "@/app/lib/types";
 
 // { title: "", description: "", label: "", link: ""},
 export const projects: cvElement[] = [
-    { title: "Banking System", description: "A mock banking application I built in the individual portion of the second division software engineering course at WSU. Also my first experience with Node.", label: "JavaScript", link: "https://github.com/IMGradeE/BankingSystem"}
+    { title: "Banking System", description: "A mock banking application I built in the individual portion of the second division software engineering course at WSU. Also my first experience with Node.", label: "JS", link: "https://github.com/IMGradeE/BankingSystem"}
 ]
 // { label: "", title: "", startDate: "", endDate: "", description: "" },
 export const WorkHistory: cvElement[] = [

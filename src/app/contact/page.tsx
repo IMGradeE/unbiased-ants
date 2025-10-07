@@ -58,7 +58,7 @@ export default function Contact() {
             options: ["Personal", "Professional", "Employment Offer", "Other"]
         },
         {
-            label: "Full Name",
+            label: "Name",
             type: "text",
             name: "name",
             placeholder: "Yours?",
@@ -81,7 +81,7 @@ export default function Contact() {
             maxLength: 64
         },
         {
-            label: "This message is urgent or time sensitive: ",
+            label: "Is this message urgent? ",
             type: "checkbox",
             name: "urgent"
         }
@@ -91,9 +91,9 @@ export default function Contact() {
 
     return (
 
-            <Form action={formAction} className="flex flex-col gap-4 md:w-2/3 sm:w-full md:mx-auto">
+            <Form action={formAction} className="flex flex-col gap-4 md:w-3/4 sm:w-full md:mx-auto">
                 <div className="flex md:flex-row flex-col gap-4">
-                    <div className="flex flex-col gap-4">
+                    <div className="md:w-1/4 flex flex-col gap-4">
                         {inputs.map((input) => {
                             ++i;
                             return (
@@ -104,7 +104,7 @@ export default function Contact() {
                         })}
                     </div>
                     <textarea
-                        className="md:flex grow sm:w-full border-1 resize-none border-gray-300 rounded-md p-2 bg-radial from-amber-50/50 to-zinc-100/25 to-100% outline-0"
+                        className="md:w-3/4 flex grow sm:w-full border-1 resize-none border-gray-300 rounded-md p-2 bg-radial from-amber-50/50 to-zinc-100/25 to-100% outline-0"
                         name="message"
                         placeholder="We've been trying to reach you about your vehicle's extended warranty..."/>
                 </div>

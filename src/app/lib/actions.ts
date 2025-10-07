@@ -44,7 +44,7 @@ export async function CreateMessage (initialState: any, formData: FormData) {
         company,
         urgent,
         message} = validatedData.data;
-
+    console.log(subject,+ "\n"+inquiryType+ "\n"+name+ "\n"+ email+ "\n"+ company+ "\n"+ urgent+ "\n"+ message);
     try {
         if(company === undefined) {
             const result = await sql`INSERT INTO Messages (subject, message, email, name, type, urgent)
@@ -57,4 +57,7 @@ export async function CreateMessage (initialState: any, formData: FormData) {
         console.error('Error creating message:', error);
         throw new Error('Failed to create message');
     }
+    return {
+        message: 'Message sent successfully!',
+    };
 }
