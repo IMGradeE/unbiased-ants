@@ -6,7 +6,7 @@ export const CVElement = ({item}:{item: cvElement}) => {
             <div className="flex flex-col md:w-1/8 w-1/6 italic font-semibold font-[geist-mono] px-2 md:px-0">
                 {item.label}
             </div>
-            <div className="flex flex-col grow px-6 md:px-0">
+            <div className="flex flex-col grow pl-6 pr-2 md:pl-0 md:pr-0">
                 <div className={"flex flex-row justify-between"}>
                     <div className={"font-bold"}>{item.title}</div>
                     {item?.link && <a href={item.link}>Source Code</a>}
